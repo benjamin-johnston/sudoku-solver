@@ -27,22 +27,20 @@ public class SudokuIOUtil {
                 break;
             }
         }
+        
+        br.close();
 
         return lines;
     }
     
-    public static void writeToFile(String outputDirectoryPath, String fileName, Sudoku sudoku) throws IOException {
-    	List<String> lines = new ArrayList<String>();
-    	
+    public static void writeToFile(String outputDirectoryPath, String fileName, Sudoku sudoku) throws IOException {  	
         BufferedWriter writer = new BufferedWriter(new FileWriter(outputDirectoryPath + "//" + fileName));
         
         writer.write(SudokuIOUtil.formatForWrite(sudoku));
         writer.close();   	
     }
     
-    public static void writeErrorsToFile(String outputDirectoryPath, String fileName, String data) {
-    	List<String> lines = new ArrayList<String>();
-    	
+    public static void writeErrorsToFile(String outputDirectoryPath, String fileName, String data) {   	
         BufferedWriter writer;
 		try {
 			writer = new BufferedWriter(new FileWriter(outputDirectoryPath + "//" + fileName));

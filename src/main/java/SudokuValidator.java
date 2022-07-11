@@ -14,7 +14,7 @@ public class SudokuValidator {
     		throw new SudokuException("Sudoku board size is not a perfect square.");
     	
     	if (sudoku.getSize() > 9) 
-    		throw new SudokuException("Sudoku solver is not ready for grids sizes > 9. Check back soon.");
+    		throw new SudokuException("Sudoku solver cannot solve grids larger than 9x9.");
     } 
     
     private static void isSquareGrid(Sudoku sudoku) throws SudokuException { 
