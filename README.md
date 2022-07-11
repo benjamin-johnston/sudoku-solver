@@ -9,7 +9,7 @@ The program reads a sudoku puzzle from an input file and attempts to solve it. I
 a message will be written to the output file. Otherwise, it will write the solved puzzle to that file.
 The program expects input files to have .txt extension, and solution files will have the same name, but a .sln.txt extension. The program can currently solve 4x4, and 9x9 puzzles. Anything else is currently out of scope.
 
-## Configuring the program
+## Configuration
 
 Input directories, output directories, and specific files can be specified in main/resources/application.properties.
 
@@ -26,7 +26,7 @@ inputDirectory=src/test/resources/
 inputFiles=puzzle1-Gavant.txt,puzzle2-Gavant.txt
 outputDirectory=src/test/resources/
 
-## Structure of the Program
+## Program Structure
 
 The Main class contains the main controller logic for the program.
 
