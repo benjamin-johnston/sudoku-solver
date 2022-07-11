@@ -26,7 +26,7 @@ inputDirectory=src/test/resources/
 inputFiles=puzzle1-Gavant.txt,puzzle2-Gavant.txt
 outputDirectory=src/test/resources/
 
-## Program Structure
+## Structure
 
 The Main class contains the main controller logic for the program.
 
