@@ -1,6 +1,6 @@
 ## Sudoku Solver
 
-## Program Overview
+## Overview
 
 This project provides some basic tools for validating and solving Sudoku puzzles.
 The Main class is the entry point of the program. This class will use the application.properties file to 
