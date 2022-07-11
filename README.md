@@ -23,10 +23,10 @@ If you don't specify any specific files, then all files in the input directory w
 
 inputFiles should be a comma delimited list.
 
-Ex:
-inputDirectory=src/test/resources/
-inputFiles=puzzle1-Gavant.txt,puzzle2-Gavant.txt
-outputDirectory=src/test/resources/
+Ex: <br />
+inputDirectory=src/test/resources/ <br />
+inputFiles=puzzle1-Gavant.txt,puzzle2-Gavant.txt <br />
+outputDirectory=src/test/resources/ <br />
 
 ## Structure
 
