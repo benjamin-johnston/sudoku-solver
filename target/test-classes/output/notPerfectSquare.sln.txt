@@ -1,0 +1,1 @@
+Sudoku Error: Sudoku board size is not a perfect square.

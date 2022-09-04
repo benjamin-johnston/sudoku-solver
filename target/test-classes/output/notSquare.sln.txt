@@ -1,0 +1,1 @@
+Sudoku Error: Sudoku length does not equal sudoku width.

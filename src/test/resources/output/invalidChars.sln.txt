@@ -1,0 +1,1 @@
+Sudoku Error: Sudoku contains invalid characters.

@@ -12,7 +12,7 @@ public class ApplicationProperties {
     
    private ApplicationProperties() {
 	  ClassLoader classLoader = this.getClass().getClassLoader();
-      InputStream in = classLoader.getResourceAsStream("main/resources/application.properties");
+      InputStream in = classLoader.getResourceAsStream("application.properties");
       
       try {
     	  properties.load(in);
