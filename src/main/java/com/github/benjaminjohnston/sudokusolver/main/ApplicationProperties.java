@@ -1,4 +1,4 @@
-package com.github.benjaminjohnston.sudokusolver;
+package com.github.benjaminjohnston.sudokusolver.main;
 
 import java.io.IOException;
 import java.io.InputStream;

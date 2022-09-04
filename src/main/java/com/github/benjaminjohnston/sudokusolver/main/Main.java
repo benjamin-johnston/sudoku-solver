@@ -1,7 +1,13 @@
-package com.github.benjaminjohnston.sudokusolver;
+package com.github.benjaminjohnston.sudokusolver.main;
 
 import java.io.File;
 import java.util.List;
+
+import com.github.benjaminjohnston.sudokusolver.Sudoku;
+import com.github.benjaminjohnston.sudokusolver.SudokuException;
+import com.github.benjaminjohnston.sudokusolver.SudokuIOUtil;
+import com.github.benjaminjohnston.sudokusolver.SudokuSolver;
+import com.github.benjaminjohnston.sudokusolver.SudokuUtil;
 
 public class Main {		
 	private static String inputDirectoryPath;

@@ -1,63 +1,57 @@
 package com.github.benjaminjohnston.sudokusolver;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class SudokuValidator {
-	
-    private static void validGridSize(Sudoku sudoku) throws SudokuException {     	
-    	double squareRoot = Math.sqrt(sudoku.getSize()); 
-
-    	if ((squareRoot - Math.floor(squareRoot)) != 0) 
-    		throw new SudokuException("Sudoku board size is not a perfect square.");
-    	
-    	if (sudoku.getSize() > 9) 
-    		throw new SudokuException("Sudoku solver cannot solve grids larger than 9x9.");
-    } 
-    
-    private static void isSquareGrid(Sudoku sudoku) throws SudokuException { 
-    	if (sudoku.getBoard().length != sudoku.getBoard()[0].length) {
-    		throw new SudokuException("Sudoku length does not equal sudoku width.");
+    private static void validate9x9Grid(Sudoku sudoku, ArrayList<String> errors) {   	
+    	if (sudoku.getBoard().length != 9 || sudoku.getBoard()[0].length != 9) {
+    		errors.add("Invalid grid. Grid should be 9x9.");
     	}
     } 
+
        
-	private static void rowsValid(Sudoku sudoku) throws SudokuException {	    
+	private static void validateRows(Sudoku sudoku, ArrayList<String> errors) {	
 		for (int i = 0; i < sudoku.getSize(); i++) {
 			if (hasDuplicates(SudokuUtil.getRow(sudoku, i))) {
-				throw new SudokuException("Row " + i + " contains duplicates.");
+				errors.add("Row " + i + " contains duplicates.");
 			}
 		}
 	}
 	
-	private static void columnsValid(Sudoku sudoku) throws SudokuException {	    
+	private static void validateColumns(Sudoku sudoku, ArrayList<String> errors) {
 		for (int j = 0; j < sudoku.getSize(); j++) {
 			if (hasDuplicates(SudokuUtil.getColumn(sudoku, j))) {
-				throw new SudokuException("Column " + j + " contains duplicates.");
+				errors.add("Column " + j + " contains duplicates.");
 			}
 		}
 	}
 	
-	private static void localGridsValid(Sudoku sudoku) throws SudokuException {
+	private static void validateLocalGrids(Sudoku sudoku, ArrayList<String> errors) {	
 		int localGridSize = (int) Math.sqrt(sudoku.getSize());
 		
 		for (int i = 0; i < sudoku.getSize(); i+=localGridSize) {
 			for (int j = 0; j < sudoku.getSize(); j+=localGridSize) {
 				if (hasDuplicates(SudokuUtil.getLocalGrid(sudoku, i, j))) {
-					throw new SudokuException("Local Grid starting at upper left position (" + i + "," + j + ") " +
+					errors.add("Local Grid starting at upper left position (" + i + "," + j + ") " +
 							"contains duplicates.");
 				}
 			}
 		}
 	}
 	
-	public static void isBoardValid(Sudoku sudoku) throws SudokuException {	
-		validGridSize(sudoku);
-		isSquareGrid(sudoku);
-		rowsValid(sudoku);
-		columnsValid(sudoku); 
-		localGridsValid(sudoku);
+	public static ArrayList<String> validateBoard(Sudoku sudoku) throws SudokuException {
+		ArrayList<String> errors = new ArrayList<String>();
+		
+		validate9x9Grid(sudoku, errors);
+		validateRows(sudoku, errors);
+		validateColumns(sudoku, errors); 
+		validateLocalGrids(sudoku, errors);
+		
+		return errors;
 	}
 	
 	private static boolean hasDuplicates(int[] arr) { 			
